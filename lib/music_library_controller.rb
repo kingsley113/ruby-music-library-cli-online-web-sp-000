@@ -1,13 +1,18 @@
 require 'pry'
 
 class MusicLibraryController
+<<<<<<< HEAD
   attr_accessor :library, :input
+=======
+  attr_accessor :library
+>>>>>>> 2d16334e203eb1a9b3e6a851c178cd6ba26112af
   def initialize(path = "./db/mp3s")
     @library = MusicImporter.new(path).import
   end
 
   def call
 
+<<<<<<< HEAD
 # Welcome the user
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
@@ -54,6 +59,68 @@ class MusicLibraryController
   end
 
 
+=======
+    input = nil
+
+    while input != "exit"
+      puts "Welcome to your music library!"
+      puts "To list all of your songs, enter 'list songs'."
+      puts "To list all of the artists in your library, enter 'list artists'."
+      puts "To list all of the genres in your library, enter 'list genres'."
+      puts "To list all of the songs by a particular artist, enter 'list artist'."
+      puts "To list all of the songs of a particular genre, enter 'list genre'."
+      puts "To play a song, enter 'play song'."
+      puts "To quit, type 'exit'."
+      puts "What would you like to do?"
+
+      input = gets.chomp
+
+      # binding.pry
+      # input != "exit" ? call : return
+
+      # if input != "exit"
+      #   call
+      if input = "list songs"
+         list_songs
+      elsif input = "list artists"
+         list_artists
+      elsif input = "list genres"
+         list_genres
+      elsif input = "list artist"
+         list_songs_by_artist
+      elsif input = "list genre"
+         list_songs_by_genre
+      elsif input = "play song"
+         play_song
+      # elsif input = "exit"
+      #   return
+      end
+
+    end
+
+    # input != "exit" ? call : return
+
+    # if input = "exit"
+    #   call
+    # elsif input = "list songs"
+    #   list_songs
+    #   return
+    # elsif input = "list artists"
+    #   list_artists
+    # elsif input = "list genres"
+    #   list_genres
+    # elsif input = "list artist"
+    #   list_songs_by_artist
+    # elsif input = "list genre"
+    #   list_songs_by_genre
+    # elsif input = "play song"
+    #   play_song
+    # else
+    #   return
+    # end
+
+  end
+>>>>>>> 2d16334e203eb1a9b3e6a851c178cd6ba26112af
 
   def sort_songs
     Song.all.sort_by {|obj| obj.name}
